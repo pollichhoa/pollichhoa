@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Products - Fresh Fruits Store" data-bn="পণ্যসমূহ - তাজা ফলের দোকান">Products - Fresh Fruits Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html" data-en="🍎 Fresh Fruits" data-bn="🍎 তাজা ফল">🍎 Fresh Fruits</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-bn="হোম">Home</a></li>
+                <li><a href="products.html" class="active" data-en="Products" data-bn="পণ্যসমূহ">Products</a></li>
+                <li><a href="about.html" data-en="About" data-bn="আমাদের সম্পর্কে">About</a></li>
+                <li><a href="contact.html" data-en="Contact" data-bn="যোগাযোগ">Contact</a></li>
+            </ul>
+            <div class="language-toggle">
+                <span class="language-label">EN</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="languageToggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="language-label">বাং</span>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="products-page">
+        <section class="page-header">
+            <h1 data-en="Our Products" data-bn="আমাদের পণ্যসমূহ">Our Products</h1>
+            <p data-en="Browse our selection of fresh, seasonal fruits" data-bn="আমাদের তাজা, মৌসুমি ফলের সংগ্রহ দেখুন">Browse our selection of fresh, seasonal fruits</p>
+        </section>
+
+        <section class="product-categories">
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all" data-en="All" data-bn="সব">All</button>
+                <button class="filter-btn" data-category="seasonal" data-en="Seasonal" data-bn="মৌসুমি">Seasonal</button>
+                <button class="filter-btn" data-category="exotic" data-en="Exotic" data-bn="বিলাসী">Exotic</button>
+                <button class="filter-btn" data-category="organic" data-en="Organic" data-bn="অর্গানিক">Organic</button>
+            </div>
+        </section>
+
+        <section class="products-grid">
+            <div class="product-card" data-category="seasonal">
+                <img src="assets/images/placeholder.jpg" alt="Red Apples">
+                <h3 data-en="Red Apples" data-bn="লাল আপেল">Red Apples</h3>
+                <p class="price" data-en="$2.99/lb" data-bn="৳২৫০/কেজি">$2.99/lb</p>
+                <span class="availability in-stock" data-en="In Season" data-bn="বর্তমানে আছে">In Season</span>
+                <p class="description" data-en="Sweet and crispy apples fresh from local orchards." data-bn="স্থানীয় বাগান থেকে তাজা মিষ্টি এবং কুড়মুড়ে আপেল।">Sweet and crispy apples fresh from local orchards.</p>
+            </div>
+            <div class="product-card" data-category="seasonal">
+                <img src="assets/images/placeholder.jpg" alt="Oranges">
+                <h3 data-en="Oranges" data-bn="কমলা">Oranges</h3>
+                <p class="price" data-en="$3.49/lb" data-bn="৳২০০/কেজি">$3.49/lb</p>
+                <span class="availability in-stock" data-en="In Season" data-bn="বর্তমানে আছে">In Season</span>
+                <p class="description" data-en="Juicy oranges perfect for fresh-squeezed juice." data-bn="তাজা রসের জন্য উপযুক্ত রসালো কমলা।">Juicy oranges perfect for fresh-squeezed juice.</p>
+            </div>
+            <div class="product-card" data-category="exotic">
+                <img src="assets/images/placeholder.jpg" alt="Dragon Fruit">
+                <h3 data-en="Dragon Fruit" data-bn="ড্রাগন ফল">Dragon Fruit</h3>
+                <p class="price" data-en="$5.99/each" data-bn="৳৫০০/টি">$5.99/each</p>
+                <span class="availability limited" data-en="Limited Stock" data-bn="সীমিত মজুদ">Limited Stock</span>
+                <p class="description" data-en="Exotic dragon fruit with vibrant pink flesh." data-bn="উজ্জ্বল গোলাপি শাঁসযুক্ত বিলাসী ড্রাগন ফল।">Exotic dragon fruit with vibrant pink flesh.</p>
+            </div>
+            <div class="product-card" data-category="exotic">
+                <img src="assets/images/placeholder.jpg" alt="Mangosteen">
+                <h3 data-en="Mangosteen" data-bn="ম্যাঙ্গোস্টিন">Mangosteen</h3>
+                <p class="price" data-en="$7.99/lb" data-bn="৳৬০০/কেজি">$7.99/lb</p>
+                <span class="availability coming-soon" data-en="Coming Soon" data-bn="শীঘ্রই আসছে">Coming Soon</span>
+                <p class="description" data-en="Sweet and tangy tropical delight." data-bn="মিষ্টি এবং টক ট্রপিক্যাল স্বাদ।">Sweet and tangy tropical delight.</p>
+            </div>
+            <div class="product-card" data-category="organic">
+                <img src="assets/images/placeholder.jpg" alt="Organic Strawberries">
+                <h3 data-en="Organic Strawberries" data-bn="অর্গানিক স্ট্রবেরি">Organic Strawberries</h3>
+                <p class="price" data-en="$4.99/lb" data-bn="৳৪০০/কেজি">$4.99/lb</p>
+                <span class="availability in-stock" data-en="In Season" data-bn="বর্তমানে আছে">In Season</span>
+                <p class="description" data-en="Certified organic strawberries from local farms." data-bn="স্থানীয় খামার থেকে সার্টিফাইড অর্গানিক স্ট্রবেরি।">Certified organic strawberries from local farms.</p>
+            </div>
+            <div class="product-card" data-category="organic">
+                <img src="assets/images/placeholder.jpg" alt="Organic Blueberries">
+                <h3 data-en="Organic Blueberries" data-bn="অর্গানিক ব্লুবেরি">Organic Blueberries</h3>
+                <p class="price" data-en="$5.99/lb" data-bn="৳৫০০/কেজি">$5.99/lb</p>
+                <span class="availability in-stock" data-en="In Season" data-bn="বর্তমানে আছে">In Season</span>
+                <p class="description" data-en="Sweet and nutritious organic blueberries." data-bn="মিষ্টি এবং পুষ্টিকর অর্গানিক ব্লুবেরি।">Sweet and nutritious organic blueberries.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 data-en="Contact Us" data-bn="যোগাযোগ করুন">Contact Us</h4>
+                <p data-en="📞 (555) 123-4567" data-bn="📞 ০১৭১২-৩৪৫-৬৭৮">📞 (555) 123-4567</p>
+                <p>📧 info@freshfruits.com</p>
+            </div>
+            <div class="footer-section">
+                <h4 data-en="Hours" data-bn="দোকানের সময়">Hours</h4>
+                <p data-en="Mon-Sat: 9AM - 8PM" data-bn="সোম-শনি: সকাল ৯টা - রাত ৮টা">Mon-Sat: 9AM - 8PM</p>
+                <p data-en="Sunday: 10AM - 6PM" data-bn="রবিবার: সকাল ১০টা - সন্ধ্যা ৬টা">Sunday: 10AM - 6PM</p>
+            </div>
+            <div class="footer-section">
+                <h4 data-en="Follow Us" data-bn="সোশ্যাল মিডিয়া">Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-en="© 2024 Fresh Fruits. All rights reserved." data-bn="© ২০২৪ তাজা ফল। সর্বস্বত্ব সংরক্ষিত।">© 2024 Fresh Fruits. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const products = document.querySelectorAll('.product-card');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const category = button.dataset.category;
+                    products.forEach(product => {
+                        if (category === 'all' || product.dataset.category === category) {
+                            product.style.display = 'block';
+                        } else {
+                            product.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
