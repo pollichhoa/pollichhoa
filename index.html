@@ -51,25 +51,8 @@
 
         <section class="featured-products">
             <h2 data-en="Featured Products" data-bn="বিশেষ পণ্যসমূহ">Featured Products</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="assets/images/placeholder.jpg" alt="Seasonal Apples">
-                    <h3 data-en="Seasonal Apples" data-bn="মৌসুমি আপেল">Seasonal Apples</h3>
-                    <p class="price" data-en="$2.99/lb" data-bn="৳২৫০/কেজি">$2.99/lb</p>
-                    <span class="availability in-stock" data-en="In Season" data-bn="বর্তমানে আছে">In Season</span>
-                </div>
-                <div class="product-card">
-                    <img src="assets/images/placeholder.jpg" alt="Fresh Oranges">
-                    <h3 data-en="Fresh Oranges" data-bn="তাজা কমলা">Fresh Oranges</h3>
-                    <p class="price" data-en="$3.49/lb" data-bn="৳২০০/কেজি">$3.49/lb</p>
-                    <span class="availability in-stock" data-en="In Season" data-bn="বর্তমানে আছে">In Season</span>
-                </div>
-                <div class="product-card">
-                    <img src="assets/images/placeholder.jpg" alt="Premium Berries">
-                    <h3 data-en="Premium Berries" data-bn="প্রিমিয়াম বেরি">Premium Berries</h3>
-                    <p class="price" data-en="$4.99/lb" data-bn="৳৪০০/কেজি">$4.99/lb</p>
-                    <span class="availability coming-soon" data-en="Coming Soon" data-bn="শীঘ্রই আসছে">Coming Soon</span>
-                </div>
+            <div class="product-grid" id="featuredProductsGrid">
+                <!-- Featured products will be loaded dynamically here -->
             </div>
         </section>
 
@@ -126,5 +109,48 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to create featured product card
+            function createFeaturedProductCard(product) {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.name[currentLanguage]}">
+                    <h3 data-en="${product.name.en}" data-bn="${product.name.bn}">${product.name[currentLanguage]}</h3>
+                    <p class="price" data-en="${product.price.en}" data-bn="${product.price.bn}">${product.price[currentLanguage]}</p>
+                    <span class="availability ${product.availability.en.toLowerCase().replace(' ', '-')}" 
+                          data-en="${product.availability.en}" 
+                          data-bn="${product.availability.bn}">${product.availability[currentLanguage]}</span>
+                `;
+
+                return card;
+            }
+
+            // Function to render featured products
+            async function renderFeaturedProducts() {
+                const products = await loadProducts();
+                const featuredProductsGrid = document.getElementById('featuredProductsGrid');
+                featuredProductsGrid.innerHTML = '';
+
+                // Get the last 3 products
+                const lastThreeProducts = products.slice(-3);
+
+                lastThreeProducts.forEach(product => {
+                    const card = createFeaturedProductCard(product);
+                    featuredProductsGrid.appendChild(card);
+                });
+            }
+
+            // Initialize featured products
+            renderFeaturedProducts();
+
+            // Listen for language changes
+            document.addEventListener('languageChanged', function(e) {
+                renderFeaturedProducts();
+            });
+        });
+    </script>
 </body>
 </html>

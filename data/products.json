@@ -1,0 +1,130 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": {
+                "en": "Red Apples",
+                "bn": "লাল আপেল"
+            },
+            "category": "seasonal",
+            "price": {
+                "en": "$2.99/lb",
+                "bn": "৳২৫০/কেজি"
+            },
+            "availability": {
+                "en": "In Season",
+                "bn": "বর্তমানে আছে"
+            },
+            "description": {
+                "en": "Sweet and crispy apples fresh from local orchards.",
+                "bn": "স্থানীয় বাগান থেকে তাজা মিষ্টি এবং কুড়মুড়ে আপেল।"
+            },
+            "image": "assets/images/placeholder.jpg"
+        },
+        {
+            "id": 2,
+            "name": {
+                "en": "Oranges",
+                "bn": "কমলা"
+            },
+            "category": "seasonal",
+            "price": {
+                "en": "$3.49/lb",
+                "bn": "৳২০০/কেজি"
+            },
+            "availability": {
+                "en": "In Season",
+                "bn": "বর্তমানে আছে"
+            },
+            "description": {
+                "en": "Juicy oranges perfect for fresh-squeezed juice.",
+                "bn": "তাজা রসের জন্য উপযুক্ত রসালো কমলা।"
+            },
+            "image": "assets/images/placeholder.jpg"
+        },
+        {
+            "id": 3,
+            "name": {
+                "en": "Dragon Fruit",
+                "bn": "ড্রাগন ফল"
+            },
+            "category": "exotic",
+            "price": {
+                "en": "$5.99/each",
+                "bn": "৳৫০০/টি"
+            },
+            "availability": {
+                "en": "Limited Stock",
+                "bn": "সীমিত মজুদ"
+            },
+            "description": {
+                "en": "Exotic dragon fruit with vibrant pink flesh.",
+                "bn": "উজ্জ্বল গোলাপি শাঁসযুক্ত বিলাসী ড্রাগন ফল।"
+            },
+            "image": "assets/images/placeholder.jpg"
+        },
+        {
+            "id": 4,
+            "name": {
+                "en": "Mangosteen",
+                "bn": "ম্যাঙ্গোস্টিন"
+            },
+            "category": "exotic",
+            "price": {
+                "en": "$7.99/lb",
+                "bn": "৳৬০০/কেজি"
+            },
+            "availability": {
+                "en": "Coming Soon",
+                "bn": "শীঘ্রই আসছে"
+            },
+            "description": {
+                "en": "Sweet and tangy tropical delight.",
+                "bn": "মিষ্টি এবং টক ট্রপিক্যাল স্বাদ।"
+            },
+            "image": "assets/images/placeholder.jpg"
+        },
+        {
+            "id": 5,
+            "name": {
+                "en": "Organic Strawberries",
+                "bn": "অর্গানিক স্ট্রবেরি"
+            },
+            "category": "organic",
+            "price": {
+                "en": "$4.99/lb",
+                "bn": "৳৪০০/কেজি"
+            },
+            "availability": {
+                "en": "In Season",
+                "bn": "বর্তমানে আছে"
+            },
+            "description": {
+                "en": "Certified organic strawberries from local farms.",
+                "bn": "স্থানীয় খামার থেকে সার্টিফাইড অর্গানিক স্ট্রবেরি।"
+            },
+            "image": "assets/images/placeholder.jpg"
+        },
+        {
+            "id": 6,
+            "name": {
+                "en": "Organic Blueberries",
+                "bn": "অর্গানিক ব্লুবেরি"
+            },
+            "category": "organic",
+            "price": {
+                "en": "$5.99/lb",
+                "bn": "৳৫০০/কেজি"
+            },
+            "availability": {
+                "en": "In Season",
+                "bn": "বর্তমানে আছে"
+            },
+            "description": {
+                "en": "Sweet and nutritious organic blueberries.",
+                "bn": "মিষ্টি এবং পুষ্টিকর অর্গানিক ব্লুবেরি।"
+            },
+            "image": "assets/images/placeholder.jpg"
+        }
+    ]
+} 

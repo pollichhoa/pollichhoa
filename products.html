@@ -50,49 +50,8 @@
             </div>
         </section>
 
-        <section class="products-grid">
-            <div class="product-card" data-category="seasonal">
-                <img src="assets/images/placeholder.jpg" alt="Red Apples">
-                <h3 data-en="Red Apples" data-bn="লাল আপেল">Red Apples</h3>
-                <p class="price" data-en="$2.99/lb" data-bn="৳২৫০/কেজি">$2.99/lb</p>
-                <span class="availability in-stock" data-en="In Season" data-bn="বর্তমানে আছে">In Season</span>
-                <p class="description" data-en="Sweet and crispy apples fresh from local orchards." data-bn="স্থানীয় বাগান থেকে তাজা মিষ্টি এবং কুড়মুড়ে আপেল।">Sweet and crispy apples fresh from local orchards.</p>
-            </div>
-            <div class="product-card" data-category="seasonal">
-                <img src="assets/images/placeholder.jpg" alt="Oranges">
-                <h3 data-en="Oranges" data-bn="কমলা">Oranges</h3>
-                <p class="price" data-en="$3.49/lb" data-bn="৳২০০/কেজি">$3.49/lb</p>
-                <span class="availability in-stock" data-en="In Season" data-bn="বর্তমানে আছে">In Season</span>
-                <p class="description" data-en="Juicy oranges perfect for fresh-squeezed juice." data-bn="তাজা রসের জন্য উপযুক্ত রসালো কমলা।">Juicy oranges perfect for fresh-squeezed juice.</p>
-            </div>
-            <div class="product-card" data-category="exotic">
-                <img src="assets/images/placeholder.jpg" alt="Dragon Fruit">
-                <h3 data-en="Dragon Fruit" data-bn="ড্রাগন ফল">Dragon Fruit</h3>
-                <p class="price" data-en="$5.99/each" data-bn="৳৫০০/টি">$5.99/each</p>
-                <span class="availability limited" data-en="Limited Stock" data-bn="সীমিত মজুদ">Limited Stock</span>
-                <p class="description" data-en="Exotic dragon fruit with vibrant pink flesh." data-bn="উজ্জ্বল গোলাপি শাঁসযুক্ত বিলাসী ড্রাগন ফল।">Exotic dragon fruit with vibrant pink flesh.</p>
-            </div>
-            <div class="product-card" data-category="exotic">
-                <img src="assets/images/placeholder.jpg" alt="Mangosteen">
-                <h3 data-en="Mangosteen" data-bn="ম্যাঙ্গোস্টিন">Mangosteen</h3>
-                <p class="price" data-en="$7.99/lb" data-bn="৳৬০০/কেজি">$7.99/lb</p>
-                <span class="availability coming-soon" data-en="Coming Soon" data-bn="শীঘ্রই আসছে">Coming Soon</span>
-                <p class="description" data-en="Sweet and tangy tropical delight." data-bn="মিষ্টি এবং টক ট্রপিক্যাল স্বাদ।">Sweet and tangy tropical delight.</p>
-            </div>
-            <div class="product-card" data-category="organic">
-                <img src="assets/images/placeholder.jpg" alt="Organic Strawberries">
-                <h3 data-en="Organic Strawberries" data-bn="অর্গানিক স্ট্রবেরি">Organic Strawberries</h3>
-                <p class="price" data-en="$4.99/lb" data-bn="৳৪০০/কেজি">$4.99/lb</p>
-                <span class="availability in-stock" data-en="In Season" data-bn="বর্তমানে আছে">In Season</span>
-                <p class="description" data-en="Certified organic strawberries from local farms." data-bn="স্থানীয় খামার থেকে সার্টিফাইড অর্গানিক স্ট্রবেরি।">Certified organic strawberries from local farms.</p>
-            </div>
-            <div class="product-card" data-category="organic">
-                <img src="assets/images/placeholder.jpg" alt="Organic Blueberries">
-                <h3 data-en="Organic Blueberries" data-bn="অর্গানিক ব্লুবেরি">Organic Blueberries</h3>
-                <p class="price" data-en="$5.99/lb" data-bn="৳৫০০/কেজি">$5.99/lb</p>
-                <span class="availability in-stock" data-en="In Season" data-bn="বর্তমানে আছে">In Season</span>
-                <p class="description" data-en="Sweet and nutritious organic blueberries." data-bn="মিষ্টি এবং পুষ্টিকর অর্গানিক ব্লুবেরি।">Sweet and nutritious organic blueberries.</p>
-            </div>
+        <section class="products-grid" id="productsGrid">
+            <!-- Products will be loaded dynamically here -->
         </section>
     </main>
 
@@ -125,21 +84,77 @@
     <script src="js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const productsGrid = document.getElementById('productsGrid');
             const filterButtons = document.querySelectorAll('.filter-btn');
-            const products = document.querySelectorAll('.product-card');
+            let currentLanguage = localStorage.getItem('language') || 'en';
+
+            // Function to create product card
+            function createProductCard(product) {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.dataset.category = product.category;
+
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.name[currentLanguage]}">
+                    <div class="content">
+                        <h3 data-en="${product.name.en}" data-bn="${product.name.bn}">${product.name[currentLanguage]}</h3>
+                        <p class="price" data-en="${product.price.en}" data-bn="${product.price.bn}">${product.price[currentLanguage]}</p>
+                        <span class="availability ${product.availability.en.toLowerCase().replace(' ', '-')}" 
+                              data-en="${product.availability.en}" 
+                              data-bn="${product.availability.bn}">${product.availability[currentLanguage]}</span>
+                        <p class="description" data-en="${product.description.en}" data-bn="${product.description.bn}">${product.description[currentLanguage]}</p>
+                    </div>
+                `;
+
+                return card;
+            }
+
+            // Function to render products
+            async function renderProducts(category = 'all') {
+                try {
+                    productsGrid.innerHTML = '<div class="loading"></div>';
+                    const products = await loadProducts();
+                    productsGrid.innerHTML = '';
+
+                    if (!products || products.length === 0) {
+                        productsGrid.innerHTML = '<p class="error">No products found.</p>';
+                        return;
+                    }
+
+                    products.forEach(product => {
+                        if (category === 'all' || product.category === category) {
+                            const card = createProductCard(product);
+                            productsGrid.appendChild(card);
+                        }
+                    });
+                } catch (error) {
+                    console.error('Error rendering products:', error);
+                    productsGrid.innerHTML = `
+                        <div class="error">
+                            <p>Error loading products. Please try again later.</p>
+                            <p class="error-details">${error.message}</p>
+                        </div>
+                    `;
+                }
+            }
+
+            // Initialize products
+            renderProducts();
+
+            // Filter button click handlers
             filterButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     button.classList.add('active');
                     const category = button.dataset.category;
-                    products.forEach(product => {
-                        if (category === 'all' || product.dataset.category === category) {
-                            product.style.display = 'block';
-                        } else {
-                            product.style.display = 'none';
-                        }
-                    });
+                    renderProducts(category);
                 });
+            });
+
+            // Listen for language changes
+            document.addEventListener('languageChanged', function(e) {
+                currentLanguage = e.detail.language;
+                renderProducts(document.querySelector('.filter-btn.active').dataset.category);
             });
         });
     </script>
